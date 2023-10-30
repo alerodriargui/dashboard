@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Panel de Datos</title>
+  <!-- Agrega enlaces a las bibliotecas de Highcharts -->
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <script src="https://code.highcharts.com/modules/export-data.js"></script>
+  <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="highchart1.js"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  
+  <!-- Estilo para cambiar la fuente de texto -->
+  <style>
+    body {
+      font-family: Arial, sans-serif; /* Cambia "Arial" por la fuente que desees */
+    }
+  </style>
+</head>
+<body>
+  <!-- Barra de Navegación -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+    <a class="navbar-brand" href="#">UIB Data Dashboard</a>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="https://www.uib.es/">UIB</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="URL de la Fuente de Datos">Fuente de Datos</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="tituloUib" style="text-align: left; margin-left: 12px; margin-bottom: 10px">
+    <h2 class="titulo">UIB Data Dashboard</h2>
+  </div>
+  <!-- Visualización de estudiantes por nacionalidad -->
+  <div id="chart-container" style="height: 400px; width: 800px;"></div>
+  <div id="chart-container2" style="height: 400px; width: 800px;"></div>
+
+  <script>
+    $(document).ready(function() {
+      $.ajax({
+        url: 'data.php', // Asegúrate de que el archivo PHP tenga este nombre y devuelve datos en un formato adecuado
+        type: 'GET',
+        dataType: 'json',
+        success: function (data) {
+          // Prepara los datos para Highcharts
+          var categories = [];
+          var values = [];
+
+          // Itera sobre los datos y extrae las categorías (nacionalidades) y valores (número de estudiantes)
+          for (var i = 0; i < data.length; i++) {
+            categories.push(data[i].nacionalidad);
+            values.push(parseInt(data[i].total, 10));
+          }
+          // Crea un gráfico de barras
+          Highcharts.chart('chart-container', {
+            chart: {
+              type: 'bar'
+            },
+            title: {
+              text: 'Número de Estudiantes por Nacionalidad'
+            },
+            xAxis: {
+              categories: categories
+            },
+            yAxis: {
+              title: {
+                text: 'Número de Estudiantes'
+              }
+            },
+            series: [{
+              name: 'Estudiantes',
+              data: values
+            }]
+          });
+        },
+        error: function (error) {
+          console.log(error);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
