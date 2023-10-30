@@ -42,6 +42,7 @@ $(document).ready(function() {
         }]
       });
     },
+    // Manejar el error
     error: function (jqXHR, textStatus, errorThrown) {
       console.log("Error en la solicitud AJAX:");
       console.log("Estado de la solicitud:", textStatus);
