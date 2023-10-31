@@ -18,7 +18,7 @@ $(document).ready(function() {
       }
 
       // Crea un gráfico de barras
-      Highcharts.chart('chart-container', {
+      Highcharts.chart('chart-container1', {
         chart: {
           type: 'bar'
         },

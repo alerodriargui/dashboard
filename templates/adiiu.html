@@ -24,6 +24,10 @@
       width: 200px; /* Establece el ancho deseado para el selector */
       margin-right: 1px;
     }
+    .chart-container {
+      margin: 0 auto; /* Centra horizontalmente */
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -35,11 +39,21 @@
     <a class="navbar-brand" href="#">Spotify Data Dashboard</a>
     <select id="chart-select" class="form-control short-select">
       <option value="todos">Todos</option>
-      <option value="chart-container">Gráfico 1</option>
-      <option value="chart-container2">Gráfico 2</option>
-      <option value="chart-container3">Gráfico 3</option>
+      <option value="grafica1">Gráfico 1</option>
+      <option value="grafica2">Gráfico 2</option>
+      <option value="grafica3">Gráfico 3</option>
     </select>
     <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/alerodriargui/dashboard">
+          <img src="{{ url_for('static', filename='github.png') }}" alt="GitHubLogo" style="height: 35; width: 35px;">
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://www.linkedin.com/in/alejandro-rodr%C3%ADguez-arguimbau-3023a91b5/">
+          <img src="{{ url_for('static', filename='linkedin.png') }}" alt="LinkedInLogo" style="height: 35; width: 35px;">
+        </a>
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="https://www.uib.es/">
           <img src="{{ url_for('static', filename='uib.png') }}" alt="UIBlogo" style="height: 35; width: 35px;">
@@ -47,14 +61,47 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="https://www.kaggle.com/datasets/asaniczka/top-spotify-songs-in-73-countries-daily-updated/download?datasetVersionNumber=13">
-          <img src="{{ url_for('static', filename='database.png') }}" alt="UIBlogo" style="height: 35; width: 35px;">
+          <img src="{{ url_for('static', filename='database.png') }}" alt="DatabaseLogo" style="height: 35; width: 35px;">
         </a>
       </li>
     </ul>
   </nav>
   <!-- Visualización de estudiantes por nacionalidad -->
-  <div id="chart-container" style="margin-top: 40px; height: 400px; width: 800px;"></div>
-  <div id="chart-container2" style="height: 400px; width: 800px;"></div>
-  <div id="chart-container3" style="height: 400px; width: 800px;"></div>
+  <div class="chart-containerA" style="margin-top: 40px; width: 100%;">
+    <div id="chart-container1" style="height: 600px; width: 1000px; display: inline-block;"></div>
+  </div>
+  <div class="chart-containerB" style="margin-top: 40px; width: 100%;">
+    <div id="chart-container2" style="height: 600px; width: 1000px; display: inline-block;"></div>
+  </div>
+  <div class="chart-containerC" style="margin-top: 40px; width: 100%;">
+    <div id="chart-container3" style="height: 600px; width: 1000px; display: inline-block;"></div>
+  </div>
+  <script>
+$(document).ready(function() {
+  // Cuando se cambia la opción del selector
+  $("#chart-select").change(function() {
+    var selectedChart = $(this).val();
+    // Oculta todos los contenedores de gráficos
+    $(".chart-containerA, .chart-containerB, .chart-containerC").hide();
+    switch (selectedChart) {
+      case "todos":
+        $(".chart-containerA, .chart-containerB, .chart-containerC").show();
+        break;
+      case "grafica1":
+        $(".chart-containerA").show();
+        break;
+      case "grafica2":
+        $(".chart-containerB").show();
+        break;
+      case "grafica3":
+        $(".chart-containerC").show();
+        break;
+      default:
+        break;
+    }
+  });
+});
+  </script>
+  
 </body>
 </html>
