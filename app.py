@@ -25,5 +25,24 @@ def get_data():
     data = selected_columns.head(30).to_dict(orient='records')
     return jsonify(data)
 
+@app.route('/get_data2', methods=['GET'])
+def get_data2():
+    # Convierte el DataFrame a un diccionario JSON
+    selected_columns = df[['name', 'popularity']]
+
+    # Convierte el subconjunto del DataFrame a un diccionario JSON
+    data = selected_columns.head(30).to_dict(orient='records')
+    return jsonify(data)
+
+@app.route('/get_data3', methods=['GET'])
+def get_data3():
+    # Convierte el DataFrame a un diccionario JSON
+    selected_columns = df[['name', 'popularity']]
+
+    # Convierte el subconjunto del DataFrame a un diccionario JSON
+    data = selected_columns.head(30).to_dict(orient='records')
+    return jsonify(data)
+
+
 if __name__ == '__main__':
     app.run()
