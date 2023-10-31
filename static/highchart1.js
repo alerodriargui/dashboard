@@ -1,19 +1,25 @@
 $(document).ready(function() {
   $.ajax({
-    url: '/get_data',  
+    url: '/get_data',
     type: 'GET',
     dataType: 'json',
     success: function (data) {
       console.log("Datos recibidos: ", data);
+
+      // Ordenar los datos por popularidad en orden descendente
+      data.sort(function(a, b) {
+        return b.popularity - a.popularity;
+      });
+
       // Prepara los datos para Highcharts
       var chartData = [];
 
       // Itera sobre los datos y agrega los puntos de datos al array
       for (var i = 0; i < data.length; i++) {
+        fullName = data[i].artists + " - " + data[i].name;
         chartData.push({
-          name: data[i].name, // Cambia "name" a "artists" para reflejar la columna correcta
+          name: fullName,
           popularity: data[i].popularity,
-          // Agrega más propiedades según tus necesidades
         });
       }
 

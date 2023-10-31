@@ -19,19 +19,19 @@ def index():
 @app.route('/get_data', methods=['GET'])
 def get_data():
     # Convierte el DataFrame a un diccionario JSON
-    selected_columns = df[['name', 'popularity']]
+    selected_columns = df[['name', 'popularity', 'artists']]
 
     # Convierte el subconjunto del DataFrame a un diccionario JSON
-    data = selected_columns.head(30).to_dict(orient='records')
+    data = selected_columns.head(100).to_dict(orient='records')
     return jsonify(data)
 
 @app.route('/get_data2', methods=['GET'])
 def get_data2():
     # Convierte el DataFrame a un diccionario JSON
-    selected_columns = df[['name', 'popularity']]
+    selected_columns = df[['album_name', 'weekly_movement']]
 
     # Convierte el subconjunto del DataFrame a un diccionario JSON
-    data = selected_columns.head(30).to_dict(orient='records')
+    data = selected_columns.head(60).to_dict(orient='records')
     return jsonify(data)
 
 @app.route('/get_data3', methods=['GET'])
