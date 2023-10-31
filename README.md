@@ -2,4 +2,4 @@
  
 ## Instalación
 
-Se necesitará hostear la base de datos en local. En mi caso he utilizado XAMPP. Cuando lo iniciemos por primera vez, deberemos crear una base de datos vacía, llamada "datos_dashboard"
+Para iniciar la aplicación será necesario instalar "Flask", Flask es una librería que permite abrir un servidor en local y poder enviar datos a través de él. 
