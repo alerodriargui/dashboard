@@ -37,10 +37,10 @@ def get_data2():
 @app.route('/get_data3', methods=['GET'])
 def get_data3():
     # Convierte el DataFrame a un diccionario JSON
-    selected_columns = df[['name', 'popularity']]
+    selected_columns = df[['name', 'duration_ms']]
 
     # Convierte el subconjunto del DataFrame a un diccionario JSON
-    data = selected_columns.head(30).to_dict(orient='records')
+    data = selected_columns.head(50).to_dict(orient='records')
     return jsonify(data)
 
 
