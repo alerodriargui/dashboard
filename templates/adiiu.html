@@ -12,10 +12,11 @@
   <script src="{{ url_for('serve_static', filename='highchart1.js') }}"></script>
   <script src="{{ url_for('serve_static', filename='highchart2.js') }}"></script>
   <script src="{{ url_for('serve_static', filename='highchart3.js') }}"></script>
+  <script src="{{ url_for('serve_static', filename='highchart4.js') }}"></script>
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   
-  <!-- Estilo para cambiar la fuente de texto -->
+  <!-- Estilo para cambiar la fuente de texto y ajustar los contenedores -->
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -27,11 +28,27 @@
       width: 200px; /* Establece el ancho deseado para el selector */
       margin-right: 1px;
     }
-    .chart-containerA, .chart-containerB, .chart-containerC {
-      margin: 0 auto; /* Centra horizontalmente */
+    .chart-containerA, .chart-containerB, .chart-containerC, .chart-containerD {
+      width: 49%; /* Ajusta el ancho de los contenedores de gráficos para que haya tres en una fila */
+      display: inline-block;
+      vertical-align: top; /* Alinea los contenedores en la parte superior */
+      margin-left: 10px;
+      margin-top: 40px;
       text-align: center;
     }
+    .custom-button {
+      background-color: #45a000; /* Color de fondo */
+      color: white; /* Color del texto */
+      border: none; /* Sin borde */
+      border-radius: 5px; /* Esquinas redondeadas */
+      padding: 5px 10px; /* Espaciado interno */
+      cursor: pointer; /* Cambia el cursor al pasar por encima */
+      font-size: 16px; /* Tamaño del texto */
+    }
     
+    .custom-button:hover {
+      background-color: #45a049; /* Cambia el color de fondo al pasar por encima */
+    }
   </style>
 </head>
 <body>
@@ -46,7 +63,13 @@
       <option value="grafica1">Gráfico 1</option>
       <option value="grafica2">Gráfico 2</option>
       <option value="grafica3">Gráfico 3</option>
+      <option value="grafica4">Gráfico 4</option>
     </select>
+    <div>
+      <label for="num-rows" style="margin-left: 10px;">Top:</label>
+      <input type="number" id="num-rows" min="1" max="100" step="1" value="100" style="padding: 5px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px;">
+      <button id="update-data" class="custom-button">Actualizar</button>
+    </div>
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
         <a class="nav-link" href="https://github.com/alerodriargui/dashboard">
@@ -70,15 +93,18 @@
       </li>
     </ul>
   </nav>
-  <!-- Visualización de estudiantes por nacionalidad -->
-  <div class="chart-containerA" style="margin-top: 40px; width: 100%;">
-    <div id="chart-container1" style="height: 1000px; width: 1200px; display: inline-block;"></div>
+  <!-- Visualización de gráficos -->
+  <div class="chart-containerA">
+    <div id="chart-container1" style="height: 800px;"></div>
   </div>
-  <div class="chart-containerB" style="margin-top: 40px; width: 100%;">
-    <div id="chart-container2" style="height: 1000px; width: 1200px; display: inline-block;"></div>
+  <div class="chart-containerB">
+    <div id="chart-container2" style="height: 800px;"></div>
   </div>
-  <div class="chart-containerC" style="margin-top: 40px; width: 100%;">
-    <div id="chart-container3" style="height: 1000px; width: 1200px; display: inline-block;"></div>
+  <div class="chart-containerC">
+    <div id="chart-container3" style="height: 600px;"></div>
+  </div>
+  <div class="chart-containerD">
+    <div id="chart-container4" style="height: 600px;"></div>
   </div>
   
   <script>
@@ -87,10 +113,10 @@ $(document).ready(function() {
   $("#chart-select").change(function() {
     var selectedChart = $(this).val();
     // Oculta todos los contenedores de gráficos
-    $(".chart-containerA, .chart-containerB, .chart-containerC").hide();
+    $(".chart-containerA, .chart-containerB, .chart-containerC, .chart-containerD").hide();
     switch (selectedChart) {
       case "todos":
-        $(".chart-containerA, .chart-containerB, .chart-containerC").show();
+        $(".chart-containerA, .chart-containerB, .chart-containerC, .chart-containerD").show();
         break;
       case "grafica1":
         $(".chart-containerA").show();
@@ -100,6 +126,9 @@ $(document).ready(function() {
         break;
       case "grafica3":
         $(".chart-containerC").show();
+        break;
+        case "grafica4":
+        $(".chart-containerD").show();
         break;
       default:
         break;
