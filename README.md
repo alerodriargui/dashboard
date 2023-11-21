@@ -6,20 +6,23 @@ Asegurarse de tener Python instalado en el sistema. Después, podemos instalar l
 
 `pip install Flask pandas`
 
-Este comando instalará `Flask` y `pandas`, que son las bibliotecas utilizadas en nuestro servidor para el desarrollo web y la manipulación de datos. 
+Este comando instalará las bibliotecas `Flask` y `pandas`. 
 
 ## Dataset
 Nuestra web carga datos desde un archivo CSV (`universal_top_spotify_songs.csv`).
-Este archivo se encuentra en el mismo directorio que nuestro servidor de Python.
+El conjunto de datos presenta las canciones más populares en tendencia en más de 70 países. 
+Este archivo debe encontrarse en el mismo directorio que nuestro servidor de Python.
 
+## Endpoints
+El programa Python que utiliza el framework Flask para crear un servidor web, también contiene rutas (endpoints) para acceder a ciertos datos del conjunto de datos de Spotify.
 
 ## Ejecución del servidor
-Después de instalar las bibliotecas y comprobar que tenemos el dataset en el directorio correspondient, podemos ejecutar nuestra aplicación.
+Después de instalar las bibliotecas y comprobar que tenemos el dataset en el directorio correspondiente, podemos ejecutar nuestra aplicación.
 
 El comando para iniciar la aplicación es:
 `python app.py`
 
-Esto iniciará el servidor Flask, y se podrá acceder a la aplicación web desde un navegador visitando:
+Esto iniciará el servidor Flask, y mostrará en la terminal una URL para acceder a la aplicación web:
  `http://127.0.0.1:5000/`
 
 
