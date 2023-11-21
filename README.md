@@ -20,9 +20,11 @@ El script que utiliza el framework Flask para crear un servidor web, también co
 Después de instalar las bibliotecas y comprobar que tenemos el dataset en el directorio correspondiente, podemos ejecutar nuestra aplicación.
 
 El comando para iniciar la aplicación es:
+
 `python app.py`
 
 Esto iniciará el servidor Flask, y mostrará en la terminal una URL para acceder a la aplicación web:
+
  `http://127.0.0.1:5000/`
 
 
