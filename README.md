@@ -14,7 +14,7 @@ El conjunto de datos presenta las canciones más populares en tendencia en más 
 Este archivo debe encontrarse en el mismo directorio que nuestro servidor de Python.
 
 ## Endpoints
-El programa Python que utiliza el framework Flask para crear un servidor web, también contiene rutas (endpoints) para acceder a ciertos datos del conjunto de datos de Spotify.
+El script que utiliza el framework Flask para crear un servidor web, también contiene rutas (endpoints) para acceder a ciertos datos del conjunto de datos de Spotify en formato JSON.
 
 ## Ejecución del servidor
 Después de instalar las bibliotecas y comprobar que tenemos el dataset en el directorio correspondiente, podemos ejecutar nuestra aplicación.
