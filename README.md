@@ -24,3 +24,10 @@ El comando para iniciar la aplicación es:
 
 Esto iniciará el servidor Flask, y se podrá acceder a la aplicación web desde un navegador visitando:
  `http://127.0.0.1:5000/`
+
+
+ ## Ejemplo
+ Cuando se ejecute el servidor y se acceda a la URL indicada en la terminal, deberá aparecer una pantalla como esta:
+ 
+![Texto alternativo](spotifydashboard.png)
+ 
