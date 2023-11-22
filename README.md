@@ -28,7 +28,7 @@ Esto iniciará el servidor Flask, y mostrará en la terminal una URL para accede
  `http://127.0.0.1:5000/`
 
 
- ## Ejemplo
+ ## Ejemplo de ejecución
  Cuando se ejecute el servidor y se acceda a la URL indicada en la terminal, deberá aparecer una pantalla como esta:
 
 ![Texto alternativo](spotifydashboard.png)
