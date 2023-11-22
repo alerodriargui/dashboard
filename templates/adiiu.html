@@ -25,7 +25,7 @@
       background-attachment: fixed;
     }
     .short-select {
-      width: 200px; /* Establece el ancho deseado para el selector */
+      width: 200px; /* Ajusta el ancho del menú desplegable */
       margin-right: 1px;
     }
     .chart-containerA, .chart-containerB, .chart-containerC, .chart-containerD {
@@ -109,10 +109,9 @@
   
   <script>
 $(document).ready(function() {
-  // Cuando se cambia la opción del selector
+  // Funcion para mostrar un gráfico en específico o todos
   $("#chart-select").change(function() {
     var selectedChart = $(this).val();
-    // Oculta todos los contenedores de gráficos
     $(".chart-containerA, .chart-containerB, .chart-containerC, .chart-containerD").hide();
     switch (selectedChart) {
       case "todos":
