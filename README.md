@@ -2,7 +2,9 @@
 
 ## Instalación
 Para iniciar el servidor y la aplicación web, necesitaremos instalar algunas bibliotecas de Python si no las tenemos ya en nuestra máquina.
-Asegurarse de tener Python instalado en el sistema. Después, podemos instalar las librerías necesarias con el comando:
+Asegurarse de tener Python instalado en el sistema. 
+
+Después, podemos instalar las librerías necesarias con el comando:
 
 `pip install Flask pandas`
 
