@@ -5,43 +5,41 @@ body {
     background-attachment: fixed;
   }
   .short-select {
-    width: 200px; /* Ajusta el ancho del menú desplegable */
+    width: 200px; 
     margin-right: 1px;
   }
   .chart-containerA, .chart-containerB, .chart-containerC, .chart-containerD {
-    width: 49%; /* Ajusta el ancho de los contenedores de gráficos para que haya tres en una fila */
+    width: 49%; 
     display: inline-block;
-    vertical-align: top; /* Alinea los contenedores en la parte superior */
+    vertical-align: top; 
     margin-left: 10px;
     margin-top: 40px;
     text-align: center;
   }
   .custom-button {
-    background-color: #007da0; /* Color de fondo */
-    color: white; /* Color del texto */
-    border: none; /* Sin borde */
-    border-radius: 5px; /* Esquinas redondeadas */
-    padding: 5px 10px; /* Espaciado interno */
-    cursor: pointer; /* Cambia el cursor al pasar por encima */
-    font-size: 16px; /* Tamaño del texto */
+    background-color: #007da0; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 16px;
   }
   
   .custom-button:hover {
-    background-color: #45a049; /* Cambia el color de fondo al pasar por encima */
+    background-color: #45a049; 
   }
 
   :focus {
-    outline: 3px solid #1ed760; /* Resalta el elemento enfocado */
+    outline: 3px solid #1ed760; 
     outline-offset: 2px;
   }
   
-  /* Asegurar suficiente contraste en los botones y enlaces */
   .nav-link {
-    background-color: #1ed760; /* Color de fondo con suficiente contraste */
-    color: #fff; /* Color del texto con suficiente contraste */
+    background-color: #1ed760; 
+    color: #fff;
   }
   
-  /* Estilos para los enlaces al pasar el ratón */
   a:hover {
-    text-decoration: underline; /* Añade subrayado a los enlaces al pasar el ratón */
+    text-decoration: underline;
   }
